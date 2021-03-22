@@ -37,6 +37,8 @@ else:
     with open('transactions.txt', 'w+') as f:
         pass
 
+exit = False
+
 #GÖR EN WHILE LOOP
 while exit != True:
     #INITIERAR MENYN
