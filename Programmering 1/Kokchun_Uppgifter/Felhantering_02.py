@@ -19,9 +19,8 @@ def ar_fyrsirigt(tal):
         return False
 
 
-print(-9.999//1000)
 # testprogram
-testtal = [100, 231, 10000, 10001, -1000, 102313,1000 ,-999, -9999 ]
+testtal = [100, 231, 10000, 10001, -1000, 102313,]
 
 for t in testtal:
     if ar_fyrsirigt(t):
