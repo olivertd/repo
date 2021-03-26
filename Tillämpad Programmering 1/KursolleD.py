@@ -1,3 +1,1 @@
-#samma SOM UPPGIFTEN E:)) herman!"#"
-
-hellortard-PendingDeprecationWarning
+#SAMMA SOM UPPGIFT C

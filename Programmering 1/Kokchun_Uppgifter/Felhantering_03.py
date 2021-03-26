@@ -32,6 +32,7 @@ while True:
 # HÄR kollar jag vad det kommer kosta att åka spårvagn ifall man kör på engångspriserna gånger antalet gånger man ska åka
 engangsbljtmndskstnad = enggskstnd * antlggrvgn
 
+#Här kollar jag med en if sats vad som blir minst och skriver därmed ut lämpligt print med lite variabler för information
 if engangsbljtmndskstnad > mndskstn:
     print("Månadskort kostar", mndskstn, "kr och om du endast köper engangsbiljetter kommer det istället att kosta dig", engangsbljtmndskstnad,"kr.\nDetta innebär att du kommer att spara pengar genom att köpa månadskortet.")
 else:
