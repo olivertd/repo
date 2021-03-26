@@ -1,0 +1,40 @@
+mangd of dices: 10 
+Antal Ettor: 2 Sannolikhet: 0.2
+Antal Tvaor: 1 Sannolikhet: 0.1
+Antal Treor: 2 Sannolikhet: 0.2
+Antal Fyror: 2 Sannolikhet: 0.2
+Antal Femmor: 2 Sannolikhet: 0.2
+Antal Sexor: 1 Sannolikhet: 0.1
+
+mangd of dices: 100 
+Antal Ettor: 18 Sannolikhet: 0.18
+Antal Tvaor: 20 Sannolikhet: 0.2
+Antal Treor: 16 Sannolikhet: 0.16
+Antal Fyror: 17 Sannolikhet: 0.17
+Antal Femmor: 19 Sannolikhet: 0.19
+Antal Sexor: 10 Sannolikhet: 0.1
+
+mangd of dices: 1000 
+Antal Ettor: 165 Sannolikhet: 0.165
+Antal Tvaor: 155 Sannolikhet: 0.155
+Antal Treor: 172 Sannolikhet: 0.172
+Antal Fyror: 166 Sannolikhet: 0.166
+Antal Femmor: 156 Sannolikhet: 0.156
+Antal Sexor: 186 Sannolikhet: 0.186
+
+mangd of dices: 10000 
+Antal Ettor: 1684 Sannolikhet: 0.1684
+Antal Tvaor: 1683 Sannolikhet: 0.1683
+Antal Treor: 1621 Sannolikhet: 0.1621
+Antal Fyror: 1600 Sannolikhet: 0.16
+Antal Femmor: 1770 Sannolikhet: 0.177
+Antal Sexor: 1642 Sannolikhet: 0.1642
+
+mangd of dices: 100000 
+Antal Ettor: 16676 Sannolikhet: 0.16676
+Antal Tvaor: 16606 Sannolikhet: 0.16606
+Antal Treor: 16799 Sannolikhet: 0.16799
+Antal Fyror: 16652 Sannolikhet: 0.16652
+Antal Femmor: 16602 Sannolikhet: 0.16602
+Antal Sexor: 16665 Sannolikhet: 0.16665
+
