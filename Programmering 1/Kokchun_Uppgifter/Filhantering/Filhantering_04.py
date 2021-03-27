@@ -2,15 +2,15 @@
 import random as rnd
 
 #gör txt filen
-with open('simulering.txt', 'w+') as doinkster:
+with open("simulering.txt", "w+") as doinkster:
     doinkster.write("")
 
-
+#
 def supertarningen(mangd):
     tarningrolling = []
     for i in range(mangd):
         tarningrolling.append(rnd.randint(1,6))
-    with open('simulering.txt', "a") as doinkster:
+    with open("simulering.txt", "a") as doinkster:
         doinkster.write("mangd of dices: {} \n".format(mangd))
         doinkster.write("Antal Ettor: " + str(tarningrolling.count(1)) + " Sannolikhet: " + str(tarningrolling.count(1) / mangd) + "\n")
         doinkster.write("Antal Tvaor: " + str(tarningrolling.count(2)) + " Sannolikhet: " + str(tarningrolling.count(2) / mangd) + "\n")
@@ -20,6 +20,7 @@ def supertarningen(mangd):
         doinkster.write("Antal Sexor: " + str(tarningrolling.count(6)) + " Sannolikhet: " + str(tarningrolling.count(6) / mangd) + "\n")
         doinkster.write("\n")
 
+#
 khalielectrics = 1
 for i in range(5):
     khalielectrics *= 10

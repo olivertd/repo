@@ -1,6 +1,6 @@
 
 #ÖPPNAR provresultat.txt och printar alla rader
-with open('Provresultat.txt', 'r') as doinkster:
+with open("Provresultat.txt", "r") as doinkster:
     for line in doinkster:
         print(line,end="")
 
@@ -8,10 +8,10 @@ with open('Provresultat.txt', 'r') as doinkster:
 tomoensamlista = []
 
 #här skapar jag en backwardslash n så det blir en new line
-with open('Provresultat.txt', 'a+') as f:
+with open("Provresultat.txt", "a+") as f:
         f.write(str("\n"))
 
-with open('Provresultat.txt', 'r+') as doinkster:
+with open("Provresultat.txt", "r+") as doinkster:
     for line in doinkster:
         tomoensamlista.append(line)
         tomoensamlista.sort()
@@ -33,7 +33,7 @@ tomoensamlistatva = []
 
 
 #här öppnar jag provresultat.txt och loopar och appendar alla personer och deras resultat in i rätt lista med rätt betyg
-with open('Provresultat.txt', 'r+') as f:
+with open("Provresultat.txt", "r+") as f:
     for i in range(1,20):
         tomoensamlistatva.append(f.readline())
     for elev in tomoensamlistatva:

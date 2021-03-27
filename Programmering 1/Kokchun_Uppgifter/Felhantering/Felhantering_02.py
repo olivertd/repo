@@ -1,7 +1,8 @@
+#Importerar
 import string
 import math
 
-
+#
 def ar_fyrsirigt(tal):
     if tal/1000 >= 10:
         return False
@@ -22,6 +23,7 @@ def ar_fyrsirigt(tal):
 # testprogram
 testtal = [100, 231, 10000, 10001, -1000, 102313,]
 
+#
 for t in testtal:
     if ar_fyrsirigt(t):
         print(f"{t} är fyrsiffrigt")
