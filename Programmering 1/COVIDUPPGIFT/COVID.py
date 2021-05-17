@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 #LÄSER IN DATAFRAMES
 dfDeaths = pd.read_csv("National_Daily_Deaths.csv")
 dfDeathsendastdeaths = dfDeaths["National_Daily_Deaths"].sum
-dfCases = pd.read_csv("Regional_Daliy_Cases.csv")
+dfCases = pd.read_csv("Regional_Daily_Cases.csv")
 
 print(dfDeaths)
 

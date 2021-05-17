@@ -5,16 +5,16 @@ import time
 import sys
 
 #VÄLKOMNMNAR ANVÄNDAREN IN I PROGRAMMET MED FINA PRINTS 
-print("WELCOME TO SELK FINANCIAL BANK APP")
-print("YOU ARE STILL POOR")
-print("LEEETS GO!!!")
-time.sleep(1)
-print("3")
-time.sleep(1)
-print("2")
-time.sleep(1)
-print("1")
-print("GOOOO!!!!!!")
+#print("WELCOME TO SELK FINANCIAL BANK APP")
+#print("YOU ARE STILL POOR")
+#print("LEEETS GO!!!")
+#time.sleep(1)
+#print("3")
+#time.sleep(1)
+#print("2")
+#time.sleep(1)
+#print("1")
+#print("GOOOO!!!!!!")
 
 
 #MENY
@@ -57,17 +57,19 @@ while exit != True:
     if mainmenuinputer == 6:
         print("THANK YOU FOR USING SELK BANK APP")
         print("CURRENTLY BREAKING OUT OF THE TUSK LOOP")
-        for i in range(100+1):
-            time.sleep(0.1)
-            sys.stdout.write(('='*i)+(''*(100-i))+("\r [ %d"%i+"% ] "))
-            sys.stdout.flush()
-        print("BROKEN OUT!!")
+        #for i in range(100+1):
+            #time.sleep(0.1)
+            #sys.stdout.write(('='*i)+(''*(100-i))+("\r [ %d"%i+"% ] "))
+            #sys.stdout.flush()
+        #print("BROKEN OUT!!")
         exit = True
+        
     #KOLLAR HUR MÅNGA PENGAR SOM FINNS I BALANCE.TEXT
     if mainmenuinputer == 1:
         with open('balance.txt') as f:
             balanceerz = f.read()
             print("Your balance is currently ${}".format(balanceerz))
+            
     #DEPOSITERAR IN PENGAR I BLANCE.TEXT OCH SKRIVER IN TRANSAKTIONEN I TRANSACTIONS.TEXT
     if mainmenuinputer == 2:
         while True:
@@ -84,6 +86,7 @@ while exit != True:
             f.write(str(depositwriter))
         with open('transactions.txt', 'a') as f:
             f.write("Deposit of ${}\n".format(depositamounters))
+
     #WITHDRAWAR UR PENGAR UR BALANCE.TEXT OCH SKRIVER IN TRANSAKTIONEN I TRASACTIONS.TEXT
     if mainmenuinputer == 3:
         while True:
@@ -100,21 +103,23 @@ while exit != True:
             f.write(str(withdrawwriter))
         with open('transactions.txt', 'a') as f:
             f.write("Withdrawal of ${}\n".format(withdrawamounters))
+
     # KOLLER TRANSAKTIONEN OCH PRINTAR DEM
     if mainmenuinputer == 4:
         with open('transactions.txt') as f:
             print("\n{}".format(f.read()))
+
     # TA BORT KONTOFILERNA OCH RADERA KONTOT
-    if mainmenuinputer == 5:
-        for i in range(100+1):
-            time.sleep(0.5)
-            sys.stdout.write(('='*i)+(''*(100-i))+("\r [ %d"%i+"% ] "))
-            sys.stdout.flush()
-        print("TERMINATOR INCOMERS!!!!")
-        file_path1 = Path('balance.txt')
-        file_path1.unlink()
-        file_path2 = Path('transactions.txt')
-        file_path2.unlink()
-        time.sleep(3)
-        print("TERMINATOR SUCCESS!!!!!!!")
-        exit = True
+#    if mainmenuinputer == 5:
+#        for i in range(100+1):
+#            time.sleep(0.5)
+#            sys.stdout.write(('='*i)+(''*(100-i))+("\r [ %d"%i+"% ] "))
+#            sys.stdout.flush()
+#        print("TERMINATOR INCOMERS!!!!")
+#        file_path1 = Path('balance.txt')
+#        file_path1.unlink()
+#        file_path2 = Path('transactions.txt')
+#        file_path2.unlink()
+#        time.sleep(3)
+#        print("TERMINATOR SUCCESS!!!!!!!")
+#        exit = True
