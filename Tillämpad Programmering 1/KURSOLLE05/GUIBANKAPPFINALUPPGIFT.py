@@ -233,29 +233,27 @@ def depositwindow():
                 mainmenuwindow()
 
             if event == 'Submit':
-                while True:
-                    try:
-                        a = depositnmrstr
-                        b = int(''.join(depositnmrstr))
-                        print(f'{b} {type(b)}')
-                        depositamounters = b
-                        with open('balance.txt', 'r+') as f:
-                            balancerzdepsoit = int(f.read())
-                            print(balancerzdepsoit)
-                            depositwriter = balancerzdepsoit + depositamounters
-                            f.seek(0); f.truncate()
-                            f.write(str(depositwriter))
-                        with open('transactions.txt', 'a') as f:
-                            f.write("Deposit of ${}\n".format(depositamounters))
-                        depositnmrstr.clear()
-                        window.close()
-                        mainmenuwindow()
-                        break
-                    except:
-                        window.close()
-                        sg.popup("DOINK ERRORR I REPEAT ERROR . ENTER NUMBER WIGGER DIGGER DOINK!!!")
-                        depositwindow()
-                        break
+                if b == 0:
+                    window.close()
+                    sg.popup("DOINK ERRORR I REPEAT ERROR . ENTER NUMBER WIGGER DIGGER DOINK!!!")
+                    depositwindow()
+                else:
+                    a = depositnmrstr
+                    b = int(''.join(depositnmrstr))
+                    print(f'{b} {type(b)}')
+                    depositamounters = b
+                    with open('balance.txt', 'r+') as f:
+                        balancerzdepsoit = int(f.read())
+                        print(balancerzdepsoit)
+                        depositwriter = balancerzdepsoit + depositamounters
+                        f.seek(0); f.truncate()
+                        f.write(str(depositwriter))
+                    with open('transactions.txt', 'a') as f:
+                        f.write("Deposit of ${}\n".format(depositamounters))
+                    depositnmrstr.clear()
+                    window.close()
+                    mainmenuwindow()
+                    
 
 withdrawnmrstr = []
 d = 0
@@ -360,29 +358,26 @@ def withdrawwindow():
                 mainmenuwindow()
 
             if event == 'Submit':
-                    try:
-                        c = withdrawnmrstr
-                        d = int(''.join(withdrawnmrstr))
-                        print(f'{d} {type(d)}')
-                        withdrawamounters = d
-                        with open('balance.txt', 'r+') as f:
-                            balancerzwithdraw = int(f.read())
-                            print(balancerzwithdraw)
-                            withdrawwriter = balancerzwithdraw - withdrawamounters
-                            f.seek(0); f.truncate()
-                            f.write(str(withdrawwriter))
-                        with open('transactions.txt', 'a') as f:
-                            f.write("Withdrawal of ${}\n".format(withdrawamounters))
-                        withdrawnmrstr.clear()
-                        window.close()
-                        mainmenuwindow()
-                        break
-                    except:
-                        window.close()
-                        sg.popup("DOINK ERROPR ENTER NUMBER WHORE")
-                        withdrawwindow()
-                        break
-
+                if event == d:
+                    window.close()
+                    sg.popup("DOINK ERROPR ENTER NUMBER WHORE")
+                    withdrawwindow()
+                else:
+                    c = withdrawnmrstr
+                    d = int(''.join(withdrawnmrstr))
+                    print(f'{d} {type(d)}')
+                    withdrawamounters = d
+                    with open('balance.txt', 'r+') as f:
+                        balancerzwithdraw = int(f.read())
+                        print(balancerzwithdraw)
+                        withdrawwriter = balancerzwithdraw - withdrawamounters
+                        f.seek(0); f.truncate()
+                        f.write(str(withdrawwriter))
+                    with open('transactions.txt', 'a') as f:
+                        f.write("Withdrawal of ${}\n".format(withdrawamounters))
+                    withdrawnmrstr.clear()
+                    window.close()
+                    mainmenuwindow()
 #Kör funktionen för att öppna welcome window
 
 welcomewindow()
