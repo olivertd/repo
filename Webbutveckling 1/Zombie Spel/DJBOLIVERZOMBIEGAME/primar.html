@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="icon.png" type="image/gif" sizes="16x16">
+    <title>Kill Russ Hanemann</title>
+</head>
+
+<body style="background-image: url('https://static01.nyt.com/images/2015/04/26/arts/26SILICONWEB/26SILICONWEB-facebookJumbo.jpg'); background-size: cover;" class="gameover">
+    <div style="font-family: 'Brush Script MT', cursive; font-size: 100px; text-align: center; color: black; "text-center fixed-top">
+        <h1>KLICKA PÅ SPACE FÖR ATT GÅ TILLBAKA TILL MENYN</h1>
+    </div>
+</body>
+
+</html>
+
+<script src='http://www.spelprogrammering.nu/simple.js'>
+    const gamemode = localStorage.getItem("gamemode");
+
+    if (gamemode === 'easy') {
+        var amount = 12
+        var speed = random(1,5)
+    }
+    if (gamemode === 'medium') {
+        var amount = 18
+        var speed = random(1,8)
+    }
+
+
+    var zombies = [];
+    var i = 0;
+
+    while (i < amount) {
+        zombies.push({x: random(totalWidth), y: random(totalHeight), speed: speed});
+        i += 1
+    }
+    
+    function update() 
+    {
+        clearScreen();
+
+        var i = 0;
+
+        while (i < amount) {
+            document.body.onkeyup = function(spacebar){
+                if(spacebar.keyCode == 32){
+                    location.replace("startpage.html")
+
+                }
+            }
+            var zombie = zombies[i]; 
+
+    
+            picture(zombie.x, zombie.y, 'https://munchiesstreetfood.se/wp-content/uploads/2021/05/trescomastequilassmall.png')
+
+            if (zombie.x < mouse.x)
+                zombie.x += zombie.speed;
+            else 
+                zombie.x -= zombie.speed;
+
+            if (zombie.y < mouse.y)
+                zombie.y += zombie.speed;
+            else 
+                zombie.y -= zombie.speed;
+
+
+            if (distance(mouse, zombie) < 8 ) 
+            {
+                stopUpdate();
+                location.replace('playerdead.html')
+            }
+
+            i += 1;
+        }
+    } 
+</script>
