@@ -24,11 +24,11 @@ def terminationwindow():
     event, values = window.read()
     if event == sg.WIN_CLOSED: # if user closes window or clicks cancel
         window.close()
-    if event == 'BACK to main menu':
+    if event == 'BACK to main menu': # Om användaren klickar på back
         window.close()
         mainmenuwindow()
-    if event == 'TERMINATE ACCOUNT':
-        window.close()
+    if event == 'TERMINATE ACCOUNT': # Om användaren klickar på terminate account
+        window.close() #stänger rutan och resettar filerna som är länkade
         file_path1 = Path('balance.txt')
         file_path1.unlink()
         file_path2 = Path('transactions.txt')
@@ -42,6 +42,7 @@ def transactionwindows():
     minfil = open('transactions.txt')
     transactions_list = minfil.readlines()
 
+#här är layouten
     layout =  [[sg.Text('Transactions')],
             [sg.Multiline(default_text=transactions_list, size=(62, 10))],
             [sg.Button('BACK to')],
@@ -52,7 +53,7 @@ def transactionwindows():
     event, values = window.read()
     if event == sg.WIN_CLOSED: # if user closes window or clicks cancel
         window.close()
-    if event == 'BACK to':
+    if event == 'BACK to': #om användaren kilickar på back
         window.close()
         mainmenuwindow()
 
@@ -99,6 +100,7 @@ def welcomewindow():
 def mainmenuwindow():
     with open('balance.txt') as f:
         balanceerz = f.read()
+        #nedanför är layouten
     layout = [  [sg.Text("""Balance : """)],
         [sg.Text(balanceerz)],
         [sg.Text("""
@@ -118,9 +120,9 @@ def mainmenuwindow():
     while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == '5': # if user closes window or clicks cancel
-            break
-        if event == '1':
-            window.close()
+            break 
+        if event == '1': #Här är om användaren klickar och sedan alla knapparna
+            window.close() #alla under öppnar en ny ruta och stänger den aktiva rutan
             depositwindow()
         if event == '2':
             window.close()
@@ -128,14 +130,17 @@ def mainmenuwindow():
         if event == '3':
             window.close()
             transactionwindows()
-        if event == '4':
+        if event == '4': #event 4 är close window
             window.close()
             terminationwindow()
 
+#Gör en string och en variabel
 depositnmrstr = []
 b = 0
 
+#Här gör jag en ny ruta som är för DEPOSITWINDOWss
 def depositwindow():
+    #härr är layouten
     layout = [  
                 [sg.Text("Amount to DEPOSIT: ")],
                 [sg.Text("________________________$", key='-TEXT-')],
@@ -147,16 +152,21 @@ def depositwindow():
     # Create the Window
     window = sg.Window('DJ BOLIVER BANK', layout)
 
-    #key sak
+    #key sak för identifering
     text_elem = sg.Text('', key='-TEXT-')
     the_key = text_elem.Key
 
+#while true sats för att lyssna och processa event
+#while sats för att få numpadden att fungera korrekt, basically så den fungerar är att jag har en lista, och 2 variablar,
+#listan har nummer i sig exempel följande "3" "4" "6" sen finns det en variabel som får listans värde i exakt nummer så
+#denna hade haft 346 sen finns kan man med hjälp av numpadden lägga till nummer och ta bort nummer från listan
+#när submit knappen är gjord kalkulares exakt vad som ska sättas in på kontot
     while True:
             event, values = window.read()
             number_of_elements = len(depositnmrstr)
             if event == sg.WIN_CLOSED: # if user closes window or clicks cancel
                 break
-            if event == '1':
+            if event == '1': #All dessa if event nedanför gör samma sak och det det med appenda till listan och ändra så att variablen är korrekt
                 depositnmrstr.append("1")
                 a = depositnmrstr
                 b = int(''.join(depositnmrstr))
@@ -255,12 +265,13 @@ def depositwindow():
                     window.close()
                     mainmenuwindow()
                     
-
+#Gör en ny lista och en ny variabel för samma som innan fast för withdraw denna gångebn
 withdrawnmrstr = []
 d = 0
 
 #Här är en funktion för en ruta, just denna är för withdraw rutan
 def withdrawwindow():
+    #här är layouten
     layout = [
                 [sg.Text("Amount to WITHDRAW: ")],
                 [sg.Text("________________________$", key='-TEXT-')],
@@ -358,11 +369,12 @@ def withdrawwindow():
                 print(f'{d} {type(d)}')
                 window['-TEXT-'].update(d)
 
-            if event == 'Back':
+            if event == 'Back': #om användaren klickar på back så clearar den withdraw variebln
                 withdrawnmrstr.clear()
                 window.close()
                 mainmenuwindow()
 
+#om eventet är lika med submit så submittar den det variabeln är värd in txt FILEN och visar ett error om variabeln är inkorrekt
             if event == 'Submit':
                 if event == d:
                     window.close()
@@ -373,6 +385,7 @@ def withdrawwindow():
                     d = int(''.join(withdrawnmrstr))
                     print(f'{d} {type(d)}')
                     withdrawamounters = d
+                    #Här skriver den in korrekta värden i TXT filen
                     with open('balance.txt', 'r+') as f:
                         balancerzwithdraw = int(f.read())
                         print(balancerzwithdraw)
@@ -384,6 +397,7 @@ def withdrawwindow():
                     withdrawnmrstr.clear()
                     window.close()
                     mainmenuwindow()
+
 #Kör funktionen för att öppna welcome window
 
 welcomewindow()
