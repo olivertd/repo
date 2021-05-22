@@ -11,8 +11,11 @@
     <title>Kill Russ Hanemann</title>
 </head>
 
-<body style="background-image: url('https://static01.nyt.com/images/2015/04/26/arts/26SILICONWEB/26SILICONWEB-facebookJumbo.jpg'); background-size: cover;" class="gameover">
-    <div style="font-family: 'Brush Script MT', cursive; font-size: 100px; text-align: center; color: black; "text-center fixed-top">
+<body
+    style="background-image: url('https://static01.nyt.com/images/2015/04/26/arts/26SILICONWEB/26SILICONWEB-facebookJumbo.jpg'); background-size: cover;"
+    class="gameover">
+    <div style="font-family: 'Brush Script MT', cursive; font-size: 100px; text-align: center; color: black; "
+        text-center fixed-top">
         <h1>KLICKA PÅ SPACE FÖR ATT GÅ TILLBAKA TILL MENYN</h1>
     </div>
 </body>
@@ -24,11 +27,11 @@
 
     if (gamemode === 'easy') {
         var amount = 12
-        var speed = random(1,5)
+        var speed = random(1, 5)
     }
     if (gamemode === 'medium') {
         var amount = 18
-        var speed = random(1,8)
+        var speed = random(1, 8)
     }
 
 
@@ -36,46 +39,44 @@
     var i = 0;
 
     while (i < amount) {
-        zombies.push({x: random(totalWidth), y: random(totalHeight), speed: speed});
+        zombies.push({ x: random(totalWidth), y: random(totalHeight), speed: speed });
         i += 1
     }
-    
-    function update() 
-    {
+
+    function update() {
         clearScreen();
 
         var i = 0;
 
         while (i < amount) {
-            document.body.onkeyup = function(spacebar){
-                if(spacebar.keyCode == 32){
+            document.body.onkeyup = function (spacebar) {
+                if (spacebar.keyCode == 32) {
                     location.replace("startpage.html")
 
                 }
             }
-            var zombie = zombies[i]; 
+            var zombie = zombies[i];
 
-    
+
             picture(zombie.x, zombie.y, 'https://munchiesstreetfood.se/wp-content/uploads/2021/05/trescomastequilassmall.png')
 
             if (zombie.x < mouse.x)
                 zombie.x += zombie.speed;
-            else 
+            else
                 zombie.x -= zombie.speed;
 
             if (zombie.y < mouse.y)
                 zombie.y += zombie.speed;
-            else 
+            else
                 zombie.y -= zombie.speed;
 
 
-            if (distance(mouse, zombie) < 8 ) 
-            {
+            if (distance(mouse, zombie) < 8) {
                 stopUpdate();
                 location.replace('playerdead.html')
             }
 
             i += 1;
         }
-    } 
+    }
 </script>
