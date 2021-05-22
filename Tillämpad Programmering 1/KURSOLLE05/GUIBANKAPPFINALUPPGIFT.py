@@ -9,6 +9,7 @@ import sys
 #FIXA BUGG TA BORT WHILE TRUE SATSER PÅ EVENT
 transaktionslista = []
 
+#Här är en funktion för en ruta, just denna är för terminationsrutan
 def terminationwindow():
 
     layout = [[sg.Text('THIS IS THE TERMINATE ACCOUNT PAGE, WARNING!!', font='Helvetica 30')],
@@ -258,6 +259,7 @@ def depositwindow():
 withdrawnmrstr = []
 d = 0
 
+#Här är en funktion för en ruta, just denna är för withdraw rutan
 def withdrawwindow():
     layout = [
                 [sg.Text("Amount to WITHDRAW: ")],
@@ -274,6 +276,10 @@ def withdrawwindow():
     text_elem = sg.Text('', key='-TEXT-')
     the_key = text_elem.Key
 
+#while sats för att få numpadden att fungera korrekt, basically så den fungerar är att jag har en lista, och 2 variablar,
+#listan har nummer i sig exempel följande "3" "4" "6" sen finns det en variabel som får listans värde i exakt nummer så
+#denna hade haft 346 sen finns kan man med hjälp av numpadden lägga till nummer och ta bort nummer från listan
+#när submit knappen är gjord kalkulares exakt vad som ska sättas in på kontot
     while True:
             event, values = window.read()
             number_of_elements = len(withdrawnmrstr)
