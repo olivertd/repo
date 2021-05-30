@@ -62,8 +62,9 @@ CONTENT_STYLE = {
 
 #Här stylear jag GIFen som är på hemsidan som är där för att folk ska få budskapet att vaccin är viktigt för att stoppa covid-19
 GIFHEMSTYLE = {
-    "margin-left": "30rem",
-    "width": "70rem",
+    "margin-left": "auto",
+    "margin-right": "auto",
+    "width": "50%",
 }
 
 #Här skapar jag en till style som är till för graphsen
@@ -91,7 +92,7 @@ sidebar = html.Div(
         #Här är själva navigerinsdelen av sidebaren med knappar och annat
         dbc.Nav(
             [#Här under fixar jag så att knapparna länkar till korrekt sida
-                dbc.NavLink("Hem", href="/hem", active="exact"),
+                dbc.NavLink("Hem", href="/", active="exact"),
                 dbc.NavLink("Totala Fall Baserat På Region", href="/totalcasesbyregion", active="exact"),
                 dbc.NavLink("Hela Nationens Dagliga Fall Som Slutat Med Inläggning på intensivvård", href="/nationaldaliyicuadmissions", active="exact"),
                 dbc.NavLink("Köns Statistik", href="/konsstatistik", active="exact"),
@@ -140,7 +141,7 @@ for template in ["plotly_dark"]:
 for template in ["plotly_dark"]:
     genderdatagraphtotded3 = px.pie(genderdatadf, values="Total_Deaths", names="Gender", template=template,)
 
-#
+#Detta är en callback som öppnar den html url man klickar på
 @app.callback(
     Output("page-content", "children"),
     [Input("url", "pathname")]
@@ -148,8 +149,8 @@ for template in ["plotly_dark"]:
 
 #Här gör jaf funktionen render page som har en if o några elif för att rendera rätt sida beroende på vilken url som är relevant
 def render_page_content(pathname):
-#IFall urlen är /hem så ska den displaya detta
-    if pathname == "/hem":
+#IFall urlen är / så ska den displaya detta
+    if pathname == "/":
         #Här returnar jag en simpel sida med en H1 html med lite välkomst text
         return [
                 html.H1("WELCOME TO DJ BOLIVER COVID",
@@ -208,9 +209,9 @@ def render_page_content(pathname):
                         style={"textAlign":"center"})))),
                 dbc.Row(
                     [#i headern skapade jag en row och fyllde den med 3 columns och varje column innehåller en cirkel gRAph som jag tidigare skapat, jag blev också tvungen att säta with till 4,5 på alla för att göra det snyggt
-                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtotcases1)), width=4.5),
-                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtoticu2)), width=4.5),
-                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtotded3)), width=4.5),
+                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtotcases1)), width=4),
+                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtoticu2)), width=4),
+                        dbc.Col(html.Div(dcc.Graph(figure=genderdatagraphtotded3)), width=4),
                     ]),
                 dbc.Row(
                     [#Blev här tvungen att skapa en till row och förklara vad alla cirkeldiagrammen visade då det inte stod i cirkelgrammen själva om man inte höll musen över dem
@@ -240,5 +241,5 @@ def render_page_content(pathname):
 
 #När programmet startas kör den locala servern på port 3000
 if __name__=="__main__":
-    app.run_server(debug=True, port=3000)
+    app.run_server(debug=True, port=3000, )
 

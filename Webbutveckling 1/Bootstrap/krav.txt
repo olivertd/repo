@@ -1,0 +1,30 @@
++ rätt namn på mappar och filer
++ bra indenterad kod (in-tabbningar)
++ att saker ligger i en container
++ kommentarer i både css och html
+
+- Innehållet läggs i index.html
+
+- H1 Rubrik
+
+- H2 Underrubrik
+
+- H3 Använd ej i denna uppgift
+
+- p-tag för paragrafer
+
+- ul-tag för unsorted list
+
+- ol-tag för ordnad lista
+
+- Använd classer för att innehållet (ni behöver alltså inte använda er egen CSS)
+
+- Krav
+
+- Filer: index.html
+
+- Ej "control-c" + "control-v", utan ni skriver av all kod
+
+- Använd .container (emmet) för att snabbt skapa kontent
+
+- Kommentera din kod när du är klar med uppgiften
